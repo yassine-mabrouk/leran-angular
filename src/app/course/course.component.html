@@ -1,0 +1,35 @@
+<h1>Info User</h1>
+<h3>{{getEmail()}}</h3>
+<div (click)="ondivClick()">
+    <ul>
+        <li *ngFor="let i of courses">{{i}} </li>
+    </ul>
+    <h1 [textContent]="nameFormation" [style.color]="changeColor ? 'red': 'blue' "></h1>
+    <button class="btn btn-primary " [disabled]="isdisabled " (click)="onchangeColor($event)"> change Color </button>
+
+</div>
+<button class="btn btn-info">Cancel</button>
+<hr>
+<!-- Filtering event  -->
+<!-- #email : est un pointeur sur le dom -->
+<!-- <input type="text" name="" #email id="" class=" " class="form-control " (keyup.enter)="onKeyUp(email) "> -->
+
+<hr>
+<!-- TWO AWAY DATABINDING   -->
+<!-- <input type="text" [(ngModel)]="getInputValue" (keyup.enter)="onKeyUp() ">
+<p>The value of this input : {{getInputValue}}</p> -->
+
+<!-- pipes  -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <ul class="list-group">
+                <!-- specifier mon pipe resume  -->
+                <li class="list-group-item">{{contact.title | resume}}</li>
+                <li class="list-group-item">{{contact.avis| number: '1.2-2'}}</li>
+                <li class="list-group-item">{{contact.prix|currency:'MAD'}}</li>
+                <li class="list-group-item">{{contact.dateCreation| date}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
