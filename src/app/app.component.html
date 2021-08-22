@@ -1,3 +1,18 @@
-<h1>exercie 1</h1>
-<!-- <app-course></app-course> -->
-<app-exo></app-exo>
+<!--
+    <h1> exercie 1</h1>
+<app-exo [is-favorite]="post.favorite" (change)="onChnageFavorite($event)"></app-exo> <br>-->
+
+<!-- use panel component :test ng-content  -->
+<app-panel>
+    <div class="header">This header from app</div>
+    <div class="body">
+        <h3>Course</h3>
+
+        <ul class="list-group">
+            <li class="list-group-item">Angular</li>
+            <li class="list-group-item">React </li>
+            <li class="list-group-item">Vue</li>
+        </ul>
+
+    </div>
+</app-panel>
