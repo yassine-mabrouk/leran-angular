@@ -9,6 +9,7 @@ export class CoursesComponent implements OnInit {
     
   public courses=["react","anagular","VueJs"];
   detailInfo:boolean=false;
+
   constructor() { }
 
   ngOnInit() {
@@ -19,4 +20,6 @@ export class CoursesComponent implements OnInit {
   console.log(this.detailInfo)
   $event.stopPropagation();
   }
+  // ngSwitch 
+  viewFram="angular";
 }

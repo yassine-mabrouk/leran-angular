@@ -1,12 +1,12 @@
 <!-- 1) ngIf  -->
-<div *ngIf="courses.length > 0 ; then list else nocourses ">
-</div>
+<!-- <div *ngIf="courses.length > 0 ; then list else nocourses ">
+</div> -->
 <!-- nocourses est une variable template -->
-<ng-template #list>List des courses</ng-template>
+<!-- <ng-template #list>List des courses</ng-template>
 
-<ng-template #nocourses> No courses </ng-template>
+<ng-template #nocourses> No courses </ng-template> -->
 <!-- // exercise  -->
-
+<!-- 
 <h1>User info </h1>
 <div class="div">
     <label for="" class="form-control">Nom:Yassine Mabrouk</label>
@@ -20,5 +20,39 @@
             <li class="list-group-item" *ngFor="let i of courses ">{{i}}</li>
         </ul>
 
+    </div>
+</div> -->
+<!-- ==========================ngSwitch ============================ -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Framworks To Use </div>
+                <div class="panel-body">
+                    <ul class="nav nav-pills toClick">
+                        <li [class.active]="viewFram=='angular' ">
+                            <a (click)="viewFram='angular' ">Angular </a>
+                        </li>
+                        <li [class.active]="viewFram=='react' ">
+                            <a (click)="viewFram='react' ">React </a>
+                        </li>
+                        <li [class.active]="viewFram=='vue' ">
+                            <a (click)="viewFram='vue' ">Vue </a>
+                        </li>
+                    </ul>
+
+                    <div [ngSwitch]="viewFram ">
+                        <p *ngSwitchCase=" 'angular' " class="lead ">Angular is javascript framwork open source </p>
+                        <p *ngSwitchCase=" 'react' " class="lead ">React is javascript framwork open source </p>
+                        <p *ngSwitchCase=" 'vue' " class="lead ">Vue is javascript framwork open source </p>
+                        <p *ngSwitchDefault>
+                            More ...
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
