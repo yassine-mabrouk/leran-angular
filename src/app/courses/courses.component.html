@@ -62,7 +62,7 @@
         <div class="col-md-6  ">
             <h2>Liste des Framworks </h2>
             <button class="btn btn-success" (click)="loadCourses()">Afficher courses </button>
-            <table class="table">
+            <table class="table" *ngIf="frams">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
