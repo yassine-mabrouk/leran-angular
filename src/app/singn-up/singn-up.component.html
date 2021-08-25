@@ -1,0 +1,49 @@
+<br>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+    <legend>Make Feel Free To Join US !!</legend>
+
+    <div class="form-group">
+        <label for="">Username</label>
+        <input type="text" class="form-control" formControlName="username">
+        <!-- // username = form.get('password') -->
+        <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
+            <div *ngIf="username.errors.required">Ce champs est obligatoire !!</div>
+            <div *ngIf="username.errors.pattern">Ce champs doit contient des alpha </div>
+            <div *ngIf="username.errors.noSpace">Ce champs ne doit pas avoir des espaces </div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label for="">Password</label>
+        <input type="text" class="form-control" formControlName="password">
+        <div class="alert alert-danger" *ngIf="form.get('password').touched && form.get('password').invalid">
+            <div *ngIf="password.errors.required">Ce champs est obligatoire !!</div>
+            <div *ngIf="password.errors.minlength">Ce champ doit contient au moins {{password.errors.minlength.actualLength}} /{{password.errors.minlength.requiredLength}} caractere !!!</div>
+
+        </div>
+    </div>
+
+    <button type="submit " class="btn btn-primary ">Login</button>
+</form>
+
+<h1 class="text-center ">Liste Users</h1>
+
+<table class="table table-hover ">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>UserName</th>
+            <th>Passwoerd</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of users;index as i  ">
+            <td>{{i+1}}</td>
+            <td>{{u.username}}</td>
+            <td>{{u.password}}</td>
+            <td><button class="btn btn-danger" (click)="deleteUser(u)">Delele</button></td>
+        </tr>
+    </tbody>
+</table>

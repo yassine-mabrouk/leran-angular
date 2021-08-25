@@ -1,0 +1,92 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+    <legend>Contacter Nous !!</legend>
+
+    <div ngModelGroup="contact">
+        <!-- ngModelGroup="contact " : pour grouper les ifo de contact  -->
+        <div class="form-group">
+            <label for="">First name </label>
+            <input required minlength="4" maxlength="10" pattern="[a-zA-Z]+" type="text" class="form-control" ngModel name="firstname" #firstName="ngModel" (change)="log(firstName)">
+            <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+                <div *ngIf="firstName.errors.required">Ce champ est obligatoire !!!</div>
+                <div *ngIf="firstName.errors.minlength">Ce champ doit contient au moins {{firstName.errors.minlength.actualLength}}/ {{firstName.errors.minlength.requiredLength}} caractere !!!</div>
+                <div *ngIf="firstName.errors.pattern">Ce champ doit contient seulement les aplha !!!</div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="">Last Name </label>
+            <input required type="text" class="form-control" id="" ngModel name="lastname" #lastName="ngModel">
+            <div class="alert alert-danger" *ngIf="lastName.touched && !lastName.valid">
+                <div *ngIf="lastName.errors.required">Ce champ est obligatoire !!!</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="">Comment</label>
+            <textarea class="form-control" ngModel name="comment" #comment="ngModel"> 
+            </textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="contactWay">Methode de contact </label>
+            <select name="contactway" id="contactway" class="form-control" ngModel #contactway>
+             <option  *ngFor="let c of contactWay" [ngValue]="c">{{c.name}}</option>
+        
+            </select>
+
+        </div>
+        <div class="form-group">
+
+            <div class="radio" *ngFor="let s of sexeType">
+                <label>
+                    <input type="radio" ngModel name="sexe" id="input" [value]="s" checked="checked">
+                    {{s}}
+                </label>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                  
+                   <input type="checkbox" value="" ngModel name="abonner" #abonner>
+                   S'abonner 
+             </label>
+
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+</form>
+<p> {{f.value| json}}</p>
+<p> {{contactWay}}</p>
+<p>{{contact}}</p>
+<br><br>
+<hr>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>comment</th>
+            <th>Contact</th>
+            <th>Sexe</th>
+            <th>Abonnement</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of contact; index as i ">
+            <td>#{{i}}</td>
+            <td>{{c.firstname}}</td>
+            <td>{{c.lastname}}</td>
+            <td>{{c.comment}}</td>
+            <td>{{c.contactWayName}}</td>
+            <td>{{c.sexe}}</td>
+            <td [textContent]="c.abonner ? 'oui': 'Non '"></td>
+            <td><button class="btn btn-danger" (click)="onDeleteContact(c)">Delete</button> <button class="btn btn-info">Edit</button></td>
+        </tr>
+    </tbody>
+</table>
