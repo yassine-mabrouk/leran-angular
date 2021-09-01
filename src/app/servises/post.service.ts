@@ -10,7 +10,6 @@ import { DataServise } from './data.service';
 })
 export class PostService  extends DataServise{
 
-  public url:string="https://jsonplaceholder.typicode.com/posts"; 
   constructor(http:HttpClient) { 
     super("https://jsonplaceholder.typicode.com/posts",http);
   }

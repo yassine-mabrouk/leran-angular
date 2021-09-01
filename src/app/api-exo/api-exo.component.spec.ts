@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExoApiComponent } from './exo-api.component';
+import { ApiExoComponent } from './api-exo.component';
 
-describe('ExoApiComponent', () => {
-  let component: ExoApiComponent;
-  let fixture: ComponentFixture<ExoApiComponent>;
+describe('ApiExoComponent', () => {
+  let component: ApiExoComponent;
+  let fixture: ComponentFixture<ApiExoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExoApiComponent ]
+      declarations: [ ApiExoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExoApiComponent);
+    fixture = TestBed.createComponent(ApiExoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
