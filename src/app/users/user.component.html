@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h1 class="text-center">Listes Users </h1>
+            <div class="media" *ngFor="let u of users">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object customImge" src="https://st2.depositphotos.com/1104517/11967/v/950/depositphotos_119675554-stock-illustration-male-avatar-profile-picture-vector.jpg" alt="...">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{u.name}} {{u.username}} </h4>
+                    <ul>
+                        <li>{{u.email}}</li>
+                        <li>{{u.phone}}</li>
+                        <li>{{u.website}}</li>
+                        <li>
+                            <a [routerLink]="['/users',u.id]" [queryParams]="{page:u.id,size:1}">Profil</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

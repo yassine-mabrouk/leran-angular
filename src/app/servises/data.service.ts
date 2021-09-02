@@ -27,5 +27,8 @@ export class DataServise {
   delete(resource:any) {
     return this.http.delete(this.url + "/" +resource.id);
   }
+  getOne(id:number){
+    return this.http.get(this.url +"/" +id);
+  }
 
 }

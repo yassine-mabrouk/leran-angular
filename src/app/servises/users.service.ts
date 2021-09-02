@@ -10,6 +10,4 @@ export class UsersService extends DataServise {
   constructor(  http:HttpClient) { 
     super("https://jsonplaceholder.typicode.com/users",http);
   }
-
- 
 }
