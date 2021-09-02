@@ -23,7 +23,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 const routes:Routes = [
   {path : 'postes' ,component:PostComponent},
   {path : 'users' ,component:UserComponent},
-  {path : 'home' ,component:HomeComponent},
+  {path : '' ,component:HomeComponent},
   {path : 'users/:id' ,component:UserProfileComponent},
   {path : 'login' ,component:SingnUpComponent},
   {path : 'about' ,component:AboutComponent},
